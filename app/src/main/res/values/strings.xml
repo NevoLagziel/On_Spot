@@ -24,4 +24,5 @@
     <string name="description_put_soap_on_the_stain">Description (put soap on the stain...)</string>
     <string name="saved_staintype_addmethod">Saved/StainType/addMethod</string>
     <string name="page_name">page name</string>
+    <string name="saved_methods">Saved Methods</string>
 </resources>

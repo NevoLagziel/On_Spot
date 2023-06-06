@@ -9,7 +9,6 @@ public class Constants {
         public static final String RATING = "rating";
         public static final String MID = "mId";
 
-        public static final String TYPE = "TYPE";
     }
 
     public class ToastMsg {

@@ -78,7 +78,7 @@ public class LaunchActivity extends AppCompatActivity {
     }
 
     private void goToMainActivity(){
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this,MethodActivity.class);
         startActivity(intent);
         finish();
     }

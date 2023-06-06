@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainFragments.AddMethodFragment">
+
+    <com.google.android.material.circularreveal.CircularRevealRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/add_LAY_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="26dp"
+            android:layout_alignParentTop="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/add_ET_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/stain_type"
+                android:inputType="none"
+                android:textColor="@color/black"
+                android:clickable="false"
+                android:text="@string/stain_type"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/add_LAY_supplies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_LAY_type"
+            android:layout_marginTop="12dp"
+            android:layout_marginHorizontal="26dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/add_ET_supplies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/supplies_needed_water_soap_sponge"
+                android:inputType="textMultiLine"
+                android:maxLines="2"
+                android:minLines="2"
+                android:maxLength="100"
+                android:textColor="@color/black"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/add_LAY_recommended"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_LAY_supplies"
+            android:layout_marginTop="12dp"
+            android:layout_marginHorizontal="26dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/add_ET_recommended"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/recommended_for_carpet_pants"
+                android:inputType="textMultiLine"
+                android:maxLines="2"
+                android:minLines="2"
+                android:maxLength="100"
+                android:textColor="@color/black"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/add_LAY_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_LAY_recommended"
+            android:layout_marginTop="12dp"
+            android:layout_marginHorizontal="26dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/add_ET_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/description_put_soap_on_the_stain"
+                android:inputType="textMultiLine"
+                android:maxLines="10"
+                android:minLines="10"
+                android:maxLength="400"
+                android:textColor="@color/black"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add_BTN_add"
+            android:layout_width="175dp"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/orange_700"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:text="@string/add"
+            android:textSize="18sp"
+            />
+
+    </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
+
+</FrameLayout>

@@ -22,6 +22,7 @@ import com.example.onspot.MainActivity;
 import com.example.onspot.MethodsActivity;
 import com.example.onspot.R;
 import com.example.onspot.SavedMethodsActivity;
+import com.example.onspot.interfaces.SavedClicked_CallBack;
 import com.example.onspot.interfaces.TypeClicked_CallBack;
 import com.example.onspot.utilities.Constants;
 import com.example.onspot.utilities.SignalGenerator;
@@ -54,6 +55,12 @@ public class TypeListFragment extends Fragment {
         this.typeClicked_callBack = typeClicked_callBack;
     }
 
+    private SavedClicked_CallBack savedClicked_callBack;
+
+    public void setSavedClicked_callBack(SavedClicked_CallBack savedClicked_callBack){
+        this.savedClicked_callBack = savedClicked_callBack;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -76,11 +83,11 @@ public class TypeListFragment extends Fragment {
     private void initViews(View view) {
 
         type_IMG_logout.setOnClickListener(v -> {
-            logOut();
+            savedClicked_callBack.logOutClicked();
         });
 
         type_BTN_saved.setOnClickListener(v -> {
-            goToSavedScreen();
+            savedClicked_callBack.savedBTNClicked();
         });
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());
@@ -125,12 +132,4 @@ public class TypeListFragment extends Fragment {
         typeAdapter.setStainTypes(filteredTypes);
     }
 
-    private void logOut() {
-        FirebaseAuth.getInstance().signOut();
-        // use call back to change activity from main
-    }
-
-    private void goToSavedScreen() {
-        // use call back to change fragment from main
-    }
 }
