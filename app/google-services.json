@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "712376059982",
+    "firebase_url": "https://on-spot-ab00c-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "on-spot-ab00c",
+    "storage_bucket": "on-spot-ab00c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712376059982:android:46d99dad8d5fe7dd7b1b1f",
+        "android_client_info": {
+          "package_name": "com.example.onspot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC4tnFcDfjB_d-gApeXAoeGLk7VY34b0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainFragments.TypeListFragment">
+
+    <com.google.android.material.circularreveal.CircularRevealRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/type_BTN_saved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:text="@string/saved"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:paddingHorizontal="80dp"
+            />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/type_IMG_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/log_out"
+            android:layout_alignTop="@+id/type_BTN_saved"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/type_LAY_srcbar"
+            android:layout_toStartOf="@+id/type_BTN_saved"
+            />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/type_LAY_srcbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/type_BTN_saved"
+            >
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1"
+                android:padding="1dp"
+                android:src="@drawable/search"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/type_LAY_search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/type_BTN_saved"
+                android:layout_weight="8"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="12dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/type_ET_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/search_stain_type"
+                    android:inputType="textShortMessage"
+                    android:textColor="@color/black"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/type_LST_types"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/type_LAY_srcbar"
+            tools:listitem="@layout/stain_type"
+            />
+
+    </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".LaunchFragments.LaunchFragment">
+
+    <com.google.android.material.circularreveal.CircularRevealRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/launch_IMG_logo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/launch_BTN_login"
+            android:layout_marginBottom="68dp"
+            android:layout_marginHorizontal="34dp"
+            app:srcCompat="@drawable/on_spot_logo"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/launch_BTN_signup"
+            android:layout_width="175dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/orange_700"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="54dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:text="@string/sign_up"
+            android:textSize="18sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/launch_BTN_login"
+            android:layout_width="175dp"
+            android:layout_height="48dp"
+            android:layout_above="@id/launch_BTN_signup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/orange_700"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:text="@string/log_in"
+            android:textSize="18sp"
+            />
+
+    </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
+
+
+</FrameLayout>
