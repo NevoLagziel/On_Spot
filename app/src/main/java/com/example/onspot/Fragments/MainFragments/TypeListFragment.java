@@ -1,35 +1,25 @@
-package com.example.onspot.MainFragments;
+package com.example.onspot.Fragments.MainFragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.onspot.Adapters.TypeAdapter;
 import com.example.onspot.Enums.StainType;
-import com.example.onspot.LaunchActivity;
-import com.example.onspot.MainActivity;
-import com.example.onspot.MethodsActivity;
 import com.example.onspot.R;
-import com.example.onspot.SavedMethodsActivity;
 import com.example.onspot.interfaces.SavedClicked_CallBack;
 import com.example.onspot.interfaces.TypeClicked_CallBack;
-import com.example.onspot.utilities.Constants;
-import com.example.onspot.utilities.SignalGenerator;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".LaunchFragments.LaunchFragment">
+    tools:context=".Fragments.LaunchFragments.LaunchFragment">
 
     <com.google.android.material.circularreveal.CircularRevealRelativeLayout
         android:layout_width="match_parent"

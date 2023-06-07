@@ -17,21 +17,9 @@
         android:theme="@style/Theme.OnSpot"
         tools:targetApi="31">
         <activity
-            android:name=".MethodActivity"
+            android:name=".MainActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
-        <activity
-            android:name=".SavedMethodsActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".AddMethodActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".MethodsActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".LaunchActivity"
             android:exported="true"
@@ -42,10 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

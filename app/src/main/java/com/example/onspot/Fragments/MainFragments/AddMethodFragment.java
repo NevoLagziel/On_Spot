@@ -1,6 +1,5 @@
-package com.example.onspot.MainFragments;
+package com.example.onspot.Fragments.MainFragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,10 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.onspot.Enums.StainType;
 import com.example.onspot.MainActivity;
-import com.example.onspot.MethodActivity;
-import com.example.onspot.MethodsActivity;
 import com.example.onspot.Models.Method;
 import com.example.onspot.R;
 import com.example.onspot.utilities.Constants;
@@ -51,7 +49,7 @@ public class AddMethodFragment extends Fragment {
     private void initViews() {
         Bundle bundle = getArguments();
         if(bundle != null) {
-            String type = bundle.getString(MethodActivity.TYPE);
+            String type = bundle.getString(MainActivity.TYPE);
             stainType = StainType.valueOf(type);
         }
         add_ET_type.setText(stainType.getString());
@@ -69,11 +67,11 @@ public class AddMethodFragment extends Fragment {
             recommended = recommended.replaceAll("\n", " ").replaceAll("\\s+", " ");
 
             if(TextUtils.isEmpty(supplies)){
-                SignalGenerator.getInstance().toast("Enter supplies", Toast.LENGTH_SHORT);
+                SignalGenerator.getInstance().toast(Constants.ToastMsg.ENTER_SUPPLIES, Toast.LENGTH_SHORT);
                 return;
             }
             if(TextUtils.isEmpty(description)){
-                SignalGenerator.getInstance().toast("Enter description", Toast.LENGTH_SHORT);
+                SignalGenerator.getInstance().toast(Constants.ToastMsg.ENTER_DESCRIPTION, Toast.LENGTH_SHORT);
                 return;
             }
             if(TextUtils.isEmpty(recommended)){
@@ -97,7 +95,7 @@ public class AddMethodFragment extends Fragment {
                     .setDescription(description)
                     .setUserName(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
             ref.child(key).setValue(newMet);
-            SignalGenerator.getInstance().toast("Method added successfully", Toast.LENGTH_SHORT);
+            SignalGenerator.getInstance().toast(Constants.ToastMsg.METHOD_ADDED , Toast.LENGTH_SHORT);
             if(getActivity() != null)
                 getActivity().getSupportFragmentManager().popBackStack();
         }

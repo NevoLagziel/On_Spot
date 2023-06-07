@@ -1,4 +1,4 @@
-package com.example.onspot.MainFragments;
+package com.example.onspot.Fragments.MainFragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,9 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.onspot.Adapters.MethodsAdapter;
 import com.example.onspot.Enums.StainType;
-import com.example.onspot.MethodActivity;
+import com.example.onspot.MainActivity;
 import com.example.onspot.Models.Method;
 import com.example.onspot.R;
 import com.example.onspot.interfaces.AddMethodClicked_CallBack;
@@ -52,6 +53,8 @@ public class MethodListFragment extends Fragment {
 
     FirebaseAuth auth;
 
+    LottieAnimationView methodlist_ANIM_lottie;
+
     private AddMethodClicked_CallBack addMethodClicked_callBack;
 
     public void setAddMethodClicked_callBack(AddMethodClicked_CallBack addMethodClicked_callBack){
@@ -73,31 +76,39 @@ public class MethodListFragment extends Fragment {
     }
 
     private void initViews(View view) {
-        Bundle bundle = getArguments();
-        if(bundle != null){
-            listType = bundle.getBoolean(MethodActivity.LIST);
-            if(listType) {
-                String type = bundle.getString(MethodActivity.TYPE);
-                stainType = StainType.valueOf(type);
-            }
-        }
+        methodlist_ANIM_lottie.setVisibility(View.VISIBLE);
+        methodlist_ANIM_lottie.resumeAnimation();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         methodlist_LST_methodlist.setLayoutManager(linearLayoutManager);
 
-        if(listType) {
-            methodlist_MTV_title.setText(stainType.getString());
-            loadMethods();
-            methodlist_FAB_add = view.findViewById(R.id.methodlist_FAB_add);
-            methodlist_FAB_add.setOnClickListener(v -> {
-                addMethodClicked_callBack.addMethodClicked(stainType);
-            });
-        }else{
-            methodlist_MTV_title.setText(R.string.saved_methods);
-            loadSavedMethods();
-        }
+        Bundle bundle = getArguments();
+        if(bundle != null) {
+            listType = bundle.getBoolean(MainActivity.LIST);          // determine what list to open
 
+            if (listType) {
+                String type = bundle.getString(MainActivity.TYPE);
+                stainType = StainType.valueOf(type);                  // what stain type list to open
+                startListTypePage(stainType);
+            } else {
+                startSavedPage();
+            }
+        }
+    }
+
+    private void startListTypePage(StainType stainType){
+        methodlist_MTV_title.setText(stainType.getString());
+        loadMethods();
+        methodlist_FAB_add.setVisibility(View.VISIBLE);
+        methodlist_FAB_add.setOnClickListener(v -> {
+            addMethodClicked_callBack.addMethodClicked(stainType);
+        });
+    }
+
+    private void startSavedPage(){
+        methodlist_MTV_title.setText(R.string.saved_methods);
+        loadSavedMethods();
     }
 
     private void loadMethods(){
@@ -112,6 +123,8 @@ public class MethodListFragment extends Fragment {
                 Method method = snapshot.getValue(Method.class);
                 methods.add(0,method);
                 methodsAdapter.setMethods(methods);
+                methodlist_ANIM_lottie.cancelAnimation();
+                methodlist_ANIM_lottie.setVisibility(View.INVISIBLE);
                 methodsAdapter.notifyItemInserted(0);
                 methodlist_LST_methodlist.scrollToPosition(0);
             }
@@ -146,6 +159,8 @@ public class MethodListFragment extends Fragment {
     private void findViews(View view) {
         methodlist_LST_methodlist = view.findViewById(R.id.methodlist_LST_methodlist);
         methodlist_MTV_title = view.findViewById(R.id.methodlist_MTV_title);
+        methodlist_ANIM_lottie = view.findViewById(R.id.methodlist_ANIM_lottie);
+        methodlist_FAB_add = view.findViewById(R.id.methodlist_FAB_add);
     }
 
     private void loadSavedMethods() {
@@ -166,8 +181,11 @@ public class MethodListFragment extends Fragment {
                         findMethodById(methodId, new MethodCallback() {
                             @Override
                             public void onMethodFound(Method method) {
-                                if (method != null)
+                                if (method != null) {
                                     methods.add(method);
+                                    methodlist_ANIM_lottie.cancelAnimation();
+                                    methodlist_ANIM_lottie.setVisibility(View.INVISIBLE);
+                                }
                                 methodsAdapter.setMethods(methods);
                                 methodsAdapter.notifyDataSetChanged();
                             }

@@ -17,5 +17,8 @@ public class Constants {
         public static final String FIRST_NAME_ERR = "Enter first name";
         public static final String LAST_NAME_ERR = "Enter last name";
         public static final String PRESS_AGAIN_TO_EXIT = "Press again to exit!!";
+        public static final String ENTER_SUPPLIES = "Enter supplies";
+        public static final String ENTER_DESCRIPTION = "Enter description";
+        public static final String METHOD_ADDED = "Method added successfully";
     }
 }

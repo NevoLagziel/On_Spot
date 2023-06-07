@@ -1,4 +1,4 @@
-package com.example.onspot.LaunchFragments;
+package com.example.onspot.Fragments.LaunchFragments;
 
 import android.os.Bundle;
 

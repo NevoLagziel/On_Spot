@@ -9,9 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.onspot.LaunchFragments.LaunchFragment;
-import com.example.onspot.LaunchFragments.LoginFragment;
-import com.example.onspot.LaunchFragments.SignupFragment;
+import com.example.onspot.Fragments.LaunchFragments.LaunchFragment;
+import com.example.onspot.Fragments.LaunchFragments.LoginFragment;
+import com.example.onspot.Fragments.LaunchFragments.SignupFragment;
 import com.example.onspot.interfaces.Launch_CallBack;
 import com.example.onspot.interfaces.LogIn_CallBack;
 import com.example.onspot.utilities.Constants;
@@ -78,7 +78,7 @@ public class LaunchActivity extends AppCompatActivity {
     }
 
     private void goToMainActivity(){
-        Intent intent = new Intent(this,MethodActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
