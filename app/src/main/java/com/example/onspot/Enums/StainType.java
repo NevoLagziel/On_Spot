@@ -1,7 +1,6 @@
 package com.example.onspot.Enums;
 
 public enum StainType {
-    BEET,
     BLEACH,
     BLOOD,
     CARROT,
@@ -13,7 +12,6 @@ public enum StainType {
     MARKER,
     OIL,
     PEN,
-    POMEGRANATE,
     RUST,
     WINE;
 
