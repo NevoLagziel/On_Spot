@@ -48,7 +48,6 @@ public class MethodListFragment extends Fragment {
     ArrayList<Method> methods;
 
     private boolean listType;        // saved or stain type list
-
     DatabaseReference ref;
 
     FirebaseAuth auth;
@@ -99,13 +98,31 @@ public class MethodListFragment extends Fragment {
 
     private void startListTypePage(StainType stainType){
         methodlist_MTV_title.setText(stainType.getString());
-        loadMethods();
         methodlist_FAB_add.setVisibility(View.VISIBLE);
         methodlist_FAB_add.setOnClickListener(v -> {
             addMethodClicked_callBack.addMethodClicked(stainType);
         });
+        checkForData();
     }
 
+    private void checkForData(){
+        ref.child(Constants.DBKeys.TYPES).child(stainType.toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    loadMethods();
+                }else {
+                    methodlist_ANIM_lottie.cancelAnimation();
+                    methodlist_ANIM_lottie.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
     private void startSavedPage(){
         methodlist_MTV_title.setText(R.string.saved_methods);
         loadSavedMethods();
@@ -172,9 +189,11 @@ public class MethodListFragment extends Fragment {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     methods = new ArrayList<>();
-                    if(!snapshot.hasChildren()){
+                    if(!snapshot.hasChildren()) {
                         methodsAdapter.setMethods(methods);
                         methodsAdapter.notifyDataSetChanged();
+                        methodlist_ANIM_lottie.cancelAnimation();
+                        methodlist_ANIM_lottie.setVisibility(View.INVISIBLE);
                     }
                     for (DataSnapshot data : snapshot.getChildren()) {
                         String methodId = data.getKey();
