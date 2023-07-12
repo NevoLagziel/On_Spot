@@ -1,5 +1,6 @@
 package com.example.onspot.Adapters;
 
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -209,6 +210,7 @@ public class MethodsAdapter extends RecyclerView.Adapter {
             });
 
             method_RTG_rate.setOnRatingBarChangeListener((ratingBar, rating, fromUser) -> {
+                SignalGenerator.getInstance().vibrate(100);
                 float newRating = method_RTG_rate.getRating();
                 if(newRating != 0) {
                     Method method = getItem(getAdapterPosition());
