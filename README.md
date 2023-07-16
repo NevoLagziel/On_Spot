@@ -11,3 +11,9 @@ And the methods are presented by thair rakinking, the highst rank first to the l
 Every user can save the methods that he like to is own saved list, and can also unsave them if he would like.
 
 The app uses Real Time Database in order to save all the methods, and the details that belong to each user.
+
+App example video:
+
+
+https://github.com/NevoLagziel/On_Spot/assets/118263095/3ae55f0d-738d-4ef9-a52b-2d66f40127a1
+
